@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>item_test.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+item_test.py</font>
+</center></td></tr></table>
+<pre><span class="s0">from </span><span class="s1">models</span><span class="s2">.</span><span class="s1">store </span><span class="s0">import </span><span class="s1">StoreModel</span>
+<span class="s0">from </span><span class="s1">models</span><span class="s2">.</span><span class="s1">user </span><span class="s0">import </span><span class="s1">UserModel</span>
+<span class="s0">from </span><span class="s1">models</span><span class="s2">.</span><span class="s1">item </span><span class="s0">import </span><span class="s1">ItemModel</span>
+<span class="s0">from </span><span class="s1">tests</span><span class="s2">.</span><span class="s1">base_test </span><span class="s0">import </span><span class="s1">BaseTest</span>
+<span class="s0">import </span><span class="s1">json</span>
+
+<span class="s0">class </span><span class="s1">ItemTest</span><span class="s2">(</span><span class="s1">BaseTest</span><span class="s2">):</span>
+    <span class="s0">def </span><span class="s1">setUp</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s1">super</span><span class="s2">(</span><span class="s1">ItemTest</span><span class="s2">, </span><span class="s1">self</span><span class="s2">).</span><span class="s1">setUp</span><span class="s2">()</span>
+        <span class="s1">self</span><span class="s2">.</span><span class="s1">client</span><span class="s2">.</span><span class="s1">post</span><span class="s2">(</span><span class="s3">'/register'</span><span class="s2">, </span><span class="s1">json</span><span class="s2">={</span><span class="s3">'username'</span><span class="s2">: </span><span class="s3">'test'</span><span class="s2">, </span><span class="s3">'password'</span><span class="s2">: </span><span class="s3">'1234'</span><span class="s2">})</span>
+        <span class="s1">auth_request </span><span class="s2">= </span><span class="s1">self</span><span class="s2">.</span><span class="s1">client</span><span class="s2">.</span><span class="s1">post</span><span class="s2">(</span><span class="s3">'/login'</span><span class="s2">, </span><span class="s1">json</span><span class="s2">={</span><span class="s3">'username'</span><span class="s2">:</span><span class="s3">'test'</span><span class="s2">,</span><span class="s3">'password'</span><span class="s2">:</span><span class="s3">'1234'</span><span class="s2">})</span>
+        <span class="s1">auth_token </span><span class="s2">= </span><span class="s1">json</span><span class="s2">.</span><span class="s1">loads</span><span class="s2">(</span><span class="s1">auth_request</span><span class="s2">.</span><span class="s1">data</span><span class="s2">)[</span><span class="s3">'access_token'</span><span class="s2">]</span>
+        <span class="s1">self</span><span class="s2">.</span><span class="s1">access_token </span><span class="s2">= </span><span class="s3">f'Bearer </span><span class="s0">{</span><span class="s1">auth_token</span><span class="s0">}</span><span class="s3">'</span>
+
+
+    <span class="s0">def </span><span class="s1">test_get_item_no_auth</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s1">resp </span><span class="s2">= </span><span class="s1">self</span><span class="s2">.</span><span class="s1">client</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s3">'/item/test'</span><span class="s2">)</span>
+        <span class="s1">self</span><span class="s2">.</span><span class="s1">assertEqual</span><span class="s2">(</span><span class="s1">resp</span><span class="s2">.</span><span class="s1">status_code</span><span class="s2">, </span><span class="s4">401</span><span class="s2">)</span>
+
+
+    <span class="s0">def </span><span class="s1">test_get_item_not_found</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s1">resp </span><span class="s2">= </span><span class="s1">self</span><span class="s2">.</span><span class="s1">client</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s3">'/item/test'</span><span class="s2">,</span><span class="s1">headers</span><span class="s2">={</span><span class="s3">'Authorization'</span><span class="s2">:</span><span class="s1">self</span><span class="s2">.</span><span class="s1">access_token</span><span class="s2">})</span>
+        <span class="s1">self</span><span class="s2">.</span><span class="s1">assertEqual</span><span class="s2">(</span><span class="s1">resp</span><span class="s2">.</span><span class="s1">status_code</span><span class="s2">, </span><span class="s4">404</span><span class="s2">)</span>
+
+    <span class="s0">def </span><span class="s1">test_get_item</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s1">UserModel</span><span class="s2">(</span><span class="s3">'test'</span><span class="s2">, </span><span class="s3">'1234'</span><span class="s2">).</span><span class="s1">save_to_db</span><span class="s2">()</span>
+        <span class="s1">ItemModel</span><span class="s2">(</span><span class="s3">'test'</span><span class="s2">,</span><span class="s4">19.99</span><span class="s2">,</span><span class="s4">1</span><span class="s2">)</span>
+        <span class="s1">resp </span><span class="s2">= </span><span class="s1">self</span><span class="s2">.</span><span class="s1">client</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s3">'item/test'</span><span class="s2">)</span>
+
+        <span class="s1">self</span><span class="s2">.</span><span class="s1">assertEqual</span><span class="s2">(</span><span class="s1">resp</span><span class="s2">.</span><span class="s1">status_code</span><span class="s2">, </span><span class="s4">200</span><span class="s2">)</span>
+
+        <span class="s1">self</span><span class="s2">.</span><span class="s1">assertDictEqual</span><span class="s2">({</span><span class="s3">'name'</span><span class="s2">:</span><span class="s3">'test'</span><span class="s2">,</span><span class="s3">'price'</span><span class="s2">:</span><span class="s4">19.99</span><span class="s2">},</span><span class="s1">json</span><span class="s2">.</span><span class="s1">loads</span><span class="s2">(</span><span class="s1">resp</span><span class="s2">.</span><span class="s1">data</span><span class="s2">))</span>
+
+    <span class="s0">def </span><span class="s1">test_delete_item</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s0">pass</span>
+
+    <span class="s0">def </span><span class="s1">test_create_item</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s0">pass</span>
+
+    <span class="s0">def </span><span class="s1">test_create_duplicate_item</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s0">pass</span>
+
+    <span class="s0">def </span><span class="s1">test_put_item</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s0">pass</span>
+
+    <span class="s0">def </span><span class="s1">test_put_update_item</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s0">pass</span>
+
+    <span class="s0">def </span><span class="s1">test_item_list</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s0">pass</span></pre>
+</body>
+</html>
