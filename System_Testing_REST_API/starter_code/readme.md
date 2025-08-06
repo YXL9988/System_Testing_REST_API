@@ -1,3 +1,8 @@
+> 👋 Hi, I'm Lynn — a QA Engineer transitioning into automation testing and SDET roles.  
+> This project showcases my hands-on skills in building, testing, and automating RESTful APIs using Python, Flask, and Pytest.  
+> I developed this as part of my portfolio to demonstrate my end-to-end understanding of backend systems and multi-layered test strategies.
+
+
 # Stores REST API - with Full Automation Test Suite
 
 This project is a complete RESTful API built with Python and Flask. It provides backend services for a simple online store, allowing for the management of items and stores. The primary focus of this repository is to demonstrate a comprehensive, multi-layered automated testing strategy for a real-world API.
@@ -54,8 +59,9 @@ To set up and run this project locally, follow these steps:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/LynnLin/System_Testing_REST_API.git](https://github.com/LynnLin/System_Testing_REST_API.git)
+    git clone https://github.com/LynnLin/System_Testing_REST_API.git
     cd System_Testing_REST_API
+
     ```
 
 2.  **Create a virtual environment (recommended):**
@@ -81,3 +87,24 @@ To set up and run this project locally, follow these steps:
     ```bash
     pytest
     ```
+
+
+---
+
+## 👩‍💻 About the Author
+
+**Lynn Lin**  
+QA Engineer | SDET in Progress | Ex-S&P Fixed Income Analyst  
+
+- 🔍 Passionate about quality, detail, and automation.
+- 🛠️ Skilled in manual testing, API testing (Postman), SQL, and backend test design.
+- 🚀 Currently learning Python, Pytest, Selenium, and CI/CD pipelines.
+- 🌍 Open to global opportunities (remote / hybrid).
+
+📫 Reach me on [LinkedIn] https://www.linkedin.com/in/yan-xi-lynn-l-19b27084
+📧 Email: linyanxi915@gmail.com
+
+
+>  This project is part of my QA/SDET portfolio. Feedback and collaboration are welcome!
+
+
