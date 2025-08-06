@@ -19,24 +19,24 @@ This project is a complete RESTful API built with Python and Flask. It provides 
 
 ## Project Structure
 
-The project follows a clean and organized structure to separate concerns, including a full hierarchy for automated tests.
-
+<pre>
 ├── models/
-│   ├── item.py         # Defines the Item database model and its methods
-│   ├── store.py        # Defines the Store database model and its methods
-│   └── user.py         # Defines the User database model and password logic
+│   ├── item.py          # Item database model
+│   ├── store.py         # Store database model
+│   └── user.py          # User model and password logic
 ├── resources/
-│   ├── item.py         # Defines the API Resources for Item and ItemList
-│   ├── store.py        # Defines the API Resources for Store and StoreList
-│   └── user.py         # Defines the API Resources for User Registration and Login
+│   ├── item.py          # Item & ItemList API endpoints
+│   ├── store.py         # Store & StoreList API endpoints
+│   └── user.py          # User Registration & Login APIs
 ├── tests/
-│   ├── unit/           # Contains unit tests for isolated components.
-│   ├── integration/    # Contains integration tests for API & database interaction.
-│   └── system/         # Contains end-to-end tests for the full application.
-│       └── base_test.py  # Base test case that sets up an in-memory database.
-├── app.py              # Initializes the Flask app, database, and JWT.
-├── run.py              # Main entry point to run the Flask development server.
-└── requirements.txt    # Lists all project dependencies.
+│   ├── unit/            # Unit tests (models, logic)
+│   ├── integration/     # Integration tests (API + DB)
+│   └── system/          # End-to-end system tests
+│       └── base_test.py # Sets up in-memory test DB
+├── app.py               # Flask app initialization
+├── run.py               # App entry point
+└── requirements.txt     # Python dependencies
+</pre>
 
 ## Testing Strategy
 
