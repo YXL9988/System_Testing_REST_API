@@ -51,7 +51,7 @@ def create_app(jwt_secret_key=None, database_uri=None):
     api.add_resource(UserLogin, '/login')
     api.add_resource(Item, '/item/<string:name>')
 
-
+    db.init_app(app)
 
     return app
 

@@ -9,7 +9,6 @@ class BaseTest(TestCase):
         cls.app = create_app(jwt_secret_key='test-jwt-secret-key', database_uri='sqlite:///')
         cls.app.config['DEBUG'] = False
         cls.app.config['PROPAGATE_EXCEPTIONS'] = True
-        db.init_app(cls.app)
         JWTManager(cls.app)
 
     def setUp(self):

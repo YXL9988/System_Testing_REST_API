@@ -46,5 +46,5 @@ class UserLogin(Resource):
         if not user:
             return {"message": "Invalid credentials"}, 401
 
-access_token = create_access_token(identity=str(user.id)) # for Flask-JWT-Extended only str works
+        access_token = create_access_token(identity=str(user.id)) # for Flask-JWT-Extended only str works
         return {'access_token': access_token}, 200
