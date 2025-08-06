@@ -1,5 +1,57 @@
 # Stores REST Api
+Stores REST API - with Full Automation Test Suite
 
-This is built with Flask, Flask-RESTful, Flask-JWT, and Flask-SQLAlchemy.
+This project is a complete RESTful API built with Python and Flask. It provides backend services for a simple online store, allowing for the management of items and stores. The primary focus of this repository is to demonstrate a comprehensive, multi-layered automated testing strategy for a real-world API.
 
-Deployed on Heroku.
+Core Features
+User Authentication: Secure user registration (/register) and login (/login) endpoints using JSON Web Tokens (JWT) for authentication.
+
+Protected Resources: Core business logic (managing items and stores) is protected, requiring a valid JWT access token for all operations.
+
+Item Management (CRUD): Full Create, Read, Update, and Delete functionality for items in the store.
+
+Store Management (CRUD): Full Create, Read, Update, and Delete functionality for stores.
+
+Technology Stack
+Backend: Python, Flask, Flask-RESTful
+
+Database: Flask-SQLAlchemy (using SQLite in development)
+
+Authentication: Flask-JWT-Extended
+
+Testing: Pytest, Unittest
+
+Password Security: Werkzeug Security for password hashing
+
+Project Structure
+The project follows a clean and organized structure to separate concerns, including a full hierarchy for automated tests.
+
+├── models/
+│   ├── item.py         # Defines the Item database model and its methods
+│   ├── store.py        # Defines the Store database model and its methods
+│   └── user.py         # Defines the User database model and password logic
+├── resources/
+│   ├── item.py         # Defines the API Resources for Item and ItemList
+│   ├── store.py        # Defines the API Resources for Store and StoreList
+│   └── user.py         # Defines the API Resources for User Registration and Login
+├── tests/
+│   ├── unit/           # Contains unit tests for isolated components.
+│   ├── integration/    # Contains integration tests for API & database interaction.
+│   └── system/         # Contains end-to-end tests for the full application.
+│       └── base_test.py  # Base test case that sets up an in-memory database.
+├── app.py              # Initializes the Flask app, database, and JWT.
+├── run.py              # Main entry point to run the Flask development server.
+└── requirements.txt    # Lists all project dependencies.
+
+Testing Strategy
+This project features a robust, multi-layered testing strategy to ensure code quality and reliability, mirroring the standard testing pyramid.
+
+Unit Tests: Located in tests/unit, these tests validate individual components, like model logic, in complete isolation.
+
+Integration Tests: Located in tests/integration, these tests cover the API flow, verifying that different components (API resources, database models, etc.) work together correctly.
+
+System Tests: Located in tests/system, these tests validate the complete, integrated system from an end-to-end perspective, simulating real user workflows.
+
+Test Isolation: A base test class (base_test.py) is used to create a fresh, in-memory SQLite database for each test case, guaranteeing that tests are independent and do not interfere with one another.
+
+Comprehensive Coverage: Tests cover not only successful "happy path" scenarios but also a wide range of error conditions, including invalid user input (400), unauthorized access (401), and missing resources (404).
