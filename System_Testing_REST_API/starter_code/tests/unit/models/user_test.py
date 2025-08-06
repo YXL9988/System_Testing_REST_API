@@ -14,4 +14,3 @@ class UserTest(UnitBaseTest):
         self.assertTrue(user.check_password('abcd'))  # Assert that the correct password returns True
         self.assertFalse(user.check_password('1234'))  # Assert that the wrong password returns False
 
-
