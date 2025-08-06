@@ -1,29 +1,24 @@
-# Stores REST Api
-Stores REST API - with Full Automation Test Suite
+# Stores REST API - with Full Automation Test Suite
 
 This project is a complete RESTful API built with Python and Flask. It provides backend services for a simple online store, allowing for the management of items and stores. The primary focus of this repository is to demonstrate a comprehensive, multi-layered automated testing strategy for a real-world API.
 
-Core Features
-User Authentication: Secure user registration (/register) and login (/login) endpoints using JSON Web Tokens (JWT) for authentication.
+## Core Features
 
-Protected Resources: Core business logic (managing items and stores) is protected, requiring a valid JWT access token for all operations.
+* **User Authentication**: Secure user registration (`/register`) and login (`/login`) endpoints using **JSON Web Tokens (JWT)** for authentication.
+* **Protected Resources**: Core business logic (managing items and stores) is protected, requiring a valid JWT access token for all operations.
+* **Item Management (CRUD)**: Full Create, Read, Update, and Delete functionality for items in the store.
+* **Store Management (CRUD)**: Full Create, Read, Update, and Delete functionality for stores.
 
-Item Management (CRUD): Full Create, Read, Update, and Delete functionality for items in the store.
+## Technology Stack
 
-Store Management (CRUD): Full Create, Read, Update, and Delete functionality for stores.
+* **Backend**: Python, Flask, Flask-RESTful
+* **Database**: Flask-SQLAlchemy (using SQLite in development)
+* **Authentication**: Flask-JWT-Extended
+* **Testing**: Pytest, Unittest
+* **Password Security**: Werkzeug Security for password hashing
 
-Technology Stack
-Backend: Python, Flask, Flask-RESTful
+## Project Structure
 
-Database: Flask-SQLAlchemy (using SQLite in development)
-
-Authentication: Flask-JWT-Extended
-
-Testing: Pytest, Unittest
-
-Password Security: Werkzeug Security for password hashing
-
-Project Structure
 The project follows a clean and organized structure to separate concerns, including a full hierarchy for automated tests.
 
 ├── models/
@@ -43,15 +38,46 @@ The project follows a clean and organized structure to separate concerns, includ
 ├── run.py              # Main entry point to run the Flask development server.
 └── requirements.txt    # Lists all project dependencies.
 
-Testing Strategy
+## Testing Strategy
+
 This project features a robust, multi-layered testing strategy to ensure code quality and reliability, mirroring the standard testing pyramid.
 
-Unit Tests: Located in tests/unit, these tests validate individual components, like model logic, in complete isolation.
+* **Unit Tests**: Located in `tests/unit`, these tests validate individual components, like model logic, in complete isolation.
+* **Integration Tests**: Located in `tests/integration`, these tests cover the API flow, verifying that different components (API resources, database models, etc.) work together correctly.
+* **System Tests**: Located in `tests/system`, these tests validate the complete, integrated system from an end-to-end perspective, simulating real user workflows.
+* **Test Isolation**: A base test class (`base_test.py`) is used to create a fresh, in-memory SQLite database for **each test case**, guaranteeing that tests are independent and do not interfere with one another.
+* **Comprehensive Coverage**: Tests cover not only successful "happy path" scenarios but also a wide range of error conditions, including invalid user input (`400`), unauthorized access (`401`), and missing resources (`404`).
 
-Integration Tests: Located in tests/integration, these tests cover the API flow, verifying that different components (API resources, database models, etc.) work together correctly.
+## Setup and Usage
 
-System Tests: Located in tests/system, these tests validate the complete, integrated system from an end-to-end perspective, simulating real user workflows.
+To set up and run this project locally, follow these steps:
 
-Test Isolation: A base test class (base_test.py) is used to create a fresh, in-memory SQLite database for each test case, guaranteeing that tests are independent and do not interfere with one another.
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/LynnLin/System_Testing_REST_API.git](https://github.com/LynnLin/System_Testing_REST_API.git)
+    cd System_Testing_REST_API
+    ```
 
-Comprehensive Coverage: Tests cover not only successful "happy path" scenarios but also a wide range of error conditions, including invalid user input (400), unauthorized access (401), and missing resources (404).
+2.  **Create a virtual environment (recommended):**
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+    ```
+
+3.  **Install dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4.  **Run the application:**
+    The application will create a `data.db` (SQLite) file on its first run.
+    ```bash
+    python run.py
+    ```
+    The API will be running at `http://127.0.0.1:5000`.
+
+5.  **Run the tests:**
+    To execute the full test suite, simply run `pytest` from the project's root directory.
+    ```bash
+    pytest
+    ```
