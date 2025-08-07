@@ -13,3 +13,5 @@ suite = loader.discover(start_dir='starter_code/tests', pattern='*_test.py')
 
 runner = unittest.TextTestRunner(verbosity=2)
 runner.run(suite)
+
+# test trigger GitHub Actions
