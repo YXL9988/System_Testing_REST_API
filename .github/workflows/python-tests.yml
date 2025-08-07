@@ -27,4 +27,7 @@ jobs:
     - name: Run tests with pytest
       env:
         PYTHONPATH: .
-      run: pytest starter_code/tests/
+      run: pytest System_Testing_REST_API/starter_code/tests/
+
+    - name: Show current directory structure (debug only)
+      run: ls -R
