@@ -17,7 +17,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.13'  # ✅ 根據你的設定
+        python-version: '3.13'
 
     - name: Install dependencies
       run: |
@@ -29,4 +29,3 @@ jobs:
         PYTHONPATH: System_Testing_REST_API/starter_code
       run: pytest System_Testing_REST_API/starter_code/tests/
 
- 
