@@ -19,8 +19,9 @@ This project is a complete RESTful API built with Python and Flask. It provides 
 * **Backend**: Python, Flask, Flask-RESTful
 * **Database**: Flask-SQLAlchemy (using SQLite in development)
 * **Authentication**: Flask-JWT-Extended
-* **Testing**: Pytest, Unittest
+* **Testing**: Python Unittest framework 
 * **Password Security**: Werkzeug Security for password hashing
+
 
 ## Project Structure
 
@@ -46,6 +47,7 @@ This project is a complete RESTful API built with Python and Flask. It provides 
 ## Testing Strategy
 
 This project features a robust, multi-layered testing strategy to ensure code quality and reliability, mirroring the standard testing pyramid.
+
 
 * **Unit Tests**: Located in `tests/unit`, these tests validate individual components, like model logic, in complete isolation.
 * **Integration Tests**: Located in `tests/integration`, these tests cover the API flow, verifying that different components (API resources, database models, etc.) work together correctly.
