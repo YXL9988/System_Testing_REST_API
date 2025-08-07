@@ -9,7 +9,7 @@ class StoreTest(BaseTest):
 
         self.assertEqual(resp.status_code, 201)
         self.assertIsNotNone(StoreModel.find_by_name('test'))
-        self.assertDictEqual({'name':'test','items':[]},json.loads(resp.data))
+        self.assertDictEqual({'id':1,'name':'test','items':[]},json.loads(resp.data))
 
     def test_create_duplicate_store(self):
         self.client.post('/store/test')
@@ -31,7 +31,7 @@ class StoreTest(BaseTest):
         resp = self.client.get('/store/test')
 
         self.assertEqual(resp.status_code, 200)
-        self.assertDictEqual({'name':'test','items':[]},json.loads(resp.data))
+        self.assertDictEqual({'id':1,'name':'test','items':[]},json.loads(resp.data))
 
     def test_store_not_found(self):
         resp = self.client.get('/store/test')
@@ -45,14 +45,14 @@ class StoreTest(BaseTest):
 
         resp = self.client.get('/store/test')
         self.assertEqual(resp.status_code,200)
-        self.assertDictEqual({'name':'test','items':[{'name':'test','price':19.99,'store_id':1}]},json.loads(resp.data))
+        self.assertDictEqual({'id':1,'name':'test','items':[{'name':'test','price':19.99,'store_id':1}]},json.loads(resp.data))
 
     def test_store_list(self):
         StoreModel('test').save_to_db()
 
         resp = self.client.get('/stores')
         self.assertEqual(resp.status_code, 200)
-        self.assertDictEqual({'stores':[{'name':'test','items':[]}]}, json.loads(resp.data))
+        self.assertDictEqual({'stores':[{'id':1,'name':'test','items':[]}]}, json.loads(resp.data))
 
     def test_store_list_with_items(self):
         StoreModel('test').save_to_db()
@@ -60,4 +60,4 @@ class StoreTest(BaseTest):
 
         resp = self.client.get('/stores')
         self.assertEqual(resp.status_code, 200)
-        self.assertDictEqual({'stores': [{'name': 'test', 'items': [{'name':'test','price':19.99,'store_id':1}]}]}, json.loads(resp.data))
+        self.assertDictEqual({'stores': [{'id':1,'name': 'test', 'items': [{'name':'test','price':19.99,'store_id':1}]}]}, json.loads(resp.data))
