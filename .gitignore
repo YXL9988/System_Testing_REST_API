@@ -148,3 +148,14 @@ cython_debug/
 .DS_Store
 Thumbs.db
 "System_Testing_REST_API/starter_code/instance/data.db" 
+
+
+# IDE settings
+.idea/
+.vscode/
+
+# Flask instance + SQLite DB
+instance/
+*.db
+*.sqlite3
+*.sqlite3-journal
