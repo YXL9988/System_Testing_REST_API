@@ -1,5 +1,5 @@
 > 👋 Hi, I'm Lynn — a QA Engineer transitioning into automation testing and SDET roles.  
-> This project showcases my hands-on skills in building, testing, and automating RESTful APIs using Python, Flask, and Pytest.  
+> This project showcases my hands-on skills in building, testing, and automating RESTful APIs using Python and Flask.
 > I developed this as part of my portfolio to demonstrate my end-to-end understanding of backend systems and multi-layered test strategies.
 
 
