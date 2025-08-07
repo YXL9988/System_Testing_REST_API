@@ -111,7 +111,7 @@ This adds another layer of end-to-end system testing, simulating real user flows
 
 ### Acknowledgment
 
-This project is inspired by the Udemy course **"Automated Software Testing with Python"**, taught by **Jose Salvatierra (Teclado)** :contentReference[oaicite:1]{index=1}.
+This project is inspired by the Udemy course **"Automated Software Testing with Python"**, taught by **Jose Salvatierra (Teclado).**
 
 I have customized and extended the original material by:
 
