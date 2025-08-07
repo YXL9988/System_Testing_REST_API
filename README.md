@@ -90,6 +90,20 @@ To set up and run this project locally, follow these steps:
     pytest
     ```
 
+Postman Testing with Newman (Optional CI Tool Integration)
+To demonstrate compatibility with popular API testing tools, this project includes Postman test collections and environment variables for the full system flow.
+
+You can automate and run these tests using Newman, the CLI companion for Postman. This setup is especially useful for CI/CD pipelines, enabling easy integration of API tests into build workflows.
+
+Steps to Run Postman Tests with Newman in PyCharm:
+1. Install Newman globally:
+   ```bash
+   npm install -g newman
+2. Run locally from terminal:
+   ```bash
+   newman run "Stores REST API.postman_collection.json" -e "Stores REST API.postman_environment.json"
+
+This adds another layer of end-to-end system testing, simulating real user flows outside the Python codebase.
 
 ---
 
