@@ -106,6 +106,21 @@ Steps to Run Postman Tests with Newman in PyCharm:
 
 This adds another layer of end-to-end system testing, simulating real user flows outside the Python codebase.
 
+
+---
+
+### Acknowledgment
+
+This project is inspired by the Udemy course **"Automated Software Testing with Python"**, taught by **Jose Salvatierra (Teclado).**
+
+I have customized and extended the original material by:
+
+- Rewriting and enhancing the **README** for clarity and portfolio purposes.  
+- Updating the **password hashing** implementation for better security.  
+- Adjusting the **Postman test scripts** to reflect my project structure.  
+
+This version is used solely for educational purposes and showcases my progress as a QA/SDET engineer-in-training.
+
 ---
 
 ## 👩‍💻 About the Author
