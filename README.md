@@ -102,7 +102,7 @@ Steps to Run Postman Tests with Newman in PyCharm:
    npm install -g newman
 2. Run locally from terminal:
    ```bash
-   newman run "Stores REST API.postman_collection.json" -e "Stores REST API.postman_environment.json"
+   newman run "starter_code/Stores REST API.postman_collection.json" -e "starter_code/Stores REST API.postman_environment.json" 
 
 This adds another layer of end-to-end system testing, simulating real user flows outside the Python codebase.
 
