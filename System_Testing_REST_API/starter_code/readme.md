@@ -19,8 +19,9 @@ This project is a complete RESTful API built with Python and Flask. It provides 
 * **Backend**: Python, Flask, Flask-RESTful
 * **Database**: Flask-SQLAlchemy (using SQLite in development)
 * **Authentication**: Flask-JWT-Extended
-* **Testing**: Pytest, Unittest
+* **Testing**: Python Unittest framework 
 * **Password Security**: Werkzeug Security for password hashing
+
 
 ## Project Structure
 
@@ -46,6 +47,7 @@ This project is a complete RESTful API built with Python and Flask. It provides 
 ## Testing Strategy
 
 This project features a robust, multi-layered testing strategy to ensure code quality and reliability, mirroring the standard testing pyramid.
+
 
 * **Unit Tests**: Located in `tests/unit`, these tests validate individual components, like model logic, in complete isolation.
 * **Integration Tests**: Located in `tests/integration`, these tests cover the API flow, verifying that different components (API resources, database models, etc.) work together correctly.
@@ -88,6 +90,21 @@ To set up and run this project locally, follow these steps:
     pytest
     ```
 
+Postman Testing with Newman (Optional CI Tool Integration)
+
+To demonstrate compatibility with popular API testing tools, this project includes Postman test collections and environment variables for the full system flow.
+
+You can automate and run these tests using Newman, the CLI companion for Postman. This setup is especially useful for CI/CD pipelines, enabling easy integration of API tests into build workflows.
+
+Steps to Run Postman Tests with Newman in PyCharm:
+1. Install Newman globally:
+   ```bash
+   npm install -g newman
+2. Run locally from terminal:
+   ```bash
+   newman run "Stores REST API.postman_collection.json" -e "Stores REST API.postman_environment.json"
+
+This adds another layer of end-to-end system testing, simulating real user flows outside the Python codebase.
 
 ---
 
@@ -106,5 +123,3 @@ QA Engineer | SDET in Progress | Ex-S&P Fixed Income Analyst
 
 
 >  This project is part of my QA/SDET portfolio. Feedback and collaboration are welcome!
-
-
