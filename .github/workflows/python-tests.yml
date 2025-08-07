@@ -25,7 +25,7 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run tests with pytest
+      working-directory: ./System_Testing_REST_API
       env:
         PYTHONPATH: ${{ github.workspace }}/System_Testing_REST_API/System_Testing_REST_API/starter_code
-      run: pytest System_Testing_REST_API/System_Testing_REST_API/starter_code/tests/
-
+      run: pytest starter_code/tests/
