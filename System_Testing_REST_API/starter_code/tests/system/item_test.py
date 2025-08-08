@@ -19,6 +19,13 @@ class ItemTest(BaseTest):
         resp = self.client.get('/item/test', headers=self.auth_headers)
         self.assertEqual(resp.status_code, 404)
 
+    def test_delete_item_and_get_not_found(self):
+        StoreModel('test').save_to_db()
+        ItemModel('test', 19.99, 1).save_to_db()
+        self.client.delete('/item/test', headers=self.auth_headers)
+        resp = self.client.get('/item/test', headers=self.auth_headers)
+        self.assertEqual(resp.status_code, 404)
+
     def test_get_item(self):
         StoreModel('test').save_to_db()
         ItemModel('test', 19.99, 1).save_to_db()
