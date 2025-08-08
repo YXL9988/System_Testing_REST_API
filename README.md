@@ -1,4 +1,6 @@
-> 👋 Hi, I'm Lynn — a QA Engineer transitioning into automation testing and SDET roles.  
+[![Python Application CI](https://github.com/YXL9988/System_Testing_REST_API/actions/workflows/python-tests.yml/badge.svg)](https://github.com/YXL9988/System_Testing_REST_API/actions/workflows/python-tests.yml)
+
+> > > 👋 Hi, I'm Lynn — a QA Engineer transitioning into automation testing and SDET roles.  
 > This project showcases my hands-on skills in building, testing, and automating RESTful APIs using Python and Flask.
 > I developed this as part of my portfolio to demonstrate my end-to-end understanding of backend systems and multi-layered test strategies.
 
