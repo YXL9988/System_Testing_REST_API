@@ -132,7 +132,7 @@ QA Engineer | SDET in Progress | Ex-S&P Fixed Income Analyst
 
 - 🔍 Passionate about quality, detail, and automation.
 - 🛠️ Skilled in manual testing, API testing (Postman), SQL, and backend test design.
-- 🚀 Currently expanding skill set into Python, Pytest,Playwright, and CI/CD pipelines.
+- 🚀 Currently expanding skill set into Python, Pytest, Playwright, and CI/CD pipelines.
 - 🌍 Open to global opportunities (remote / hybrid).
 
 📫 Reach me on [LinkedIn] https://www.linkedin.com/in/yan-xi-lynn-l-19b27084
